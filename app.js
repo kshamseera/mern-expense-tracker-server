@@ -8,9 +8,6 @@ const expenseRouter = require("./routes/expenses_routes")
 const port = process.env.PORT || 3000
 
 const app = express()
-app.use(cors())
-app.use(bodyParser.json())
-
 // If we are not running in production, load our local .env
 if(process.env.NODE_ENV !== 'production') {
     require('dotenv').config();
@@ -32,6 +29,18 @@ mongoose.connect(dbConn, {
         console.log('Connected to database', dbConn)
     }
 });
+// Install middleware
+const allowList = ['http://localhost:3000','https://obscure-basin-70004.herokuapp.com/']
+const corsOptions = {
+    credentials: true,
+    origin: function(origin, callback) {
+        const allowListIndex = allowList.findIndex((url) => url.includes(origin));
+        callback(null, allowListIndex > -1)
+    }
+}
+
+app.use(cors(corsOptions))
+app.use(bodyParser.json())
 
 app.use("/transactions", expenseRouter)
 app.get("/",(req,res)=> {
