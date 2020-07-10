@@ -11,7 +11,7 @@ const app = express()
 app.use(cors())
 app.use(bodyParser.json())
 
-const dbConn = 'mongodb://localhost/expense_tracker_app'
+const dbConn = process.env.MONGODB_URI || 'mongodb://localhost/expense_tracker_app'
 
 mongoose.connect(dbConn, {
     useNewUrlParser:true,
@@ -29,6 +29,7 @@ mongoose.connect(dbConn, {
 });
 
 app.use("/transactions", expenseRouter)
+app.get("/",(req,res)=> {console.log("request on/")})
 
 app.listen(port, () => {
     console.log(`App listening on port ${port}`)
