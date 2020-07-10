@@ -34,7 +34,10 @@ mongoose.connect(dbConn, {
 });
 
 app.use("/transactions", expenseRouter)
-app.get("/",(req,res)=> {console.log("request on/")})
+app.get("/",(req,res)=> {
+    console.log("request on/")
+    res.send("Got your request")
+})
 
 app.listen(port, () => {
     console.log(`App listening on port ${port}`)
