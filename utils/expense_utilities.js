@@ -13,16 +13,23 @@ const getExpensesById = function (id) {
 
 //add a new expense
 const addExpense = (req) => {
-    let date = Date.now();
-    req.body.date = date;
+    // let date = Date.now();
+    // req.body.date = date;
     return new Expense(req.body)
+};
+
+const updateExpense = (req) => {
+    return Expense.findByIdAndUpdate(req.params.id, req.body, {
+        new: true
+    })
 };
 
 
 module.exports = {
     addExpense,
     getAllExpenses,
-    getExpensesById
+    getExpensesById,
+    updateExpense
 }
 
 

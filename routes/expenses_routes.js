@@ -1,6 +1,6 @@
 const express = require("express")
 const router = express.Router()
-const {getExpenses,makeExpense} = require("../controllers/expenses_controller")
+const {getExpenses,makeExpense, changeExpense} = require("../controllers/expenses_controller")
 
 
 
@@ -18,6 +18,12 @@ router.get("/:id", getExpenses)
 //POSt on '/transactions'
 //create a new expense
 router.post("/", makeExpense)
+
+//Update
+//PUT on '/expenses/:id'
+//update expense by id
+router.put("/:id", changeExpense)
+
 
 
 
