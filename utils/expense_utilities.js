@@ -1,5 +1,15 @@
+
 //reuire model
 const Expense = require('../models/Expense');
+
+// get all expenses
+const getAllExpenses = function () {
+    return Expense.find()
+}
+// get expenses by id
+const getExpensesById = function (id) {
+    return Expense.findById(id)
+}
 
 //add a new expense
 const addExpense = (req) => {
@@ -10,5 +20,18 @@ const addExpense = (req) => {
 
 
 module.exports = {
-    addExpense
+    addExpense,
+    getAllExpenses,
+    getExpensesById
 }
+
+
+
+
+
+
+
+
+
+
+
