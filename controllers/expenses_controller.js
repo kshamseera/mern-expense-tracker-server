@@ -1,5 +1,5 @@
 
-const {getAllExpenses, getExpensesById, addExpense } = require("../utils/expense_utilities");
+const {getAllExpenses, getExpenseById, addExpense, deleteExpense} = require("../utils/expense_utilities");
 
 const getExpenses = function(req,res) {
     getAllExpenses(req)
@@ -17,10 +17,20 @@ const getExpenses = function(req,res) {
         })
     }
 
-    const makeExpense = function (req,res) {
-        const date = new Date()
+const getExpense = function(req,res){
+    getExpenseById(req.params.id)
+        .exec((err, expense) => {
+            if (err || !expense) {
+                req.status = 404;
+                return res.send("Expense not found")  
+            }
+            res.send(expense)
+    })
+}
+
+const makeExpense = function (req,res) {
     
-        addExpense(req)
+    addExpense(req)
         .save((err, expense) =>{
             if(err) {
                 res.status(400)
@@ -28,14 +38,27 @@ const getExpenses = function(req,res) {
                     error: err.message
                 })
             }
-            res.status(201)
-            res.send(expense)
+        res.status(201)
+        res.send(expense)
         })
-    
     }
+
+const removeExpense = function(req,res){
+    deleteExpense(req.params.id)
+        .exec((err) => {
+            if (err) {
+                res.status=404
+                return res.send("Expense not found")
+            }
+            res.status=204
+            res.send("Deleted Successfully")
+        })
+}
 
     module.exports = {
         getExpenses,
-        makeExpense
+        getExpense,
+        makeExpense,
+        removeExpense
     }
 
