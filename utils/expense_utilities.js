@@ -21,11 +21,17 @@ const deleteExpense = function(id){
     return Expense.findByIdAndRemove(id)
 }
 
+const updateExpense = (req) => {
+    return Expense.findByIdAndUpdate(req.params.id, req.body, {
+        new: true
+    })
+};
 
 module.exports = {
     addExpense,
     getAllExpenses,
     getExpenseById,
+    updateExpense,
     deleteExpense
 }
 
