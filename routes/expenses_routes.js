@@ -1,8 +1,6 @@
 const express = require("express")
 const router = express.Router()
-const {getExpenses,makeExpense, changeExpense} = require("../controllers/expenses_controller")
-
-
+const {getExpenses, getExpense, makeExpense, changeExpense, removeExpense} = require("../controllers/expenses_controller")
 
 // READ
 // GET on '/transactions'
@@ -12,10 +10,10 @@ router.get("/", getExpenses)
 //READ
 // GET on '/transactions/:id'
 // Returns transaction with that id
-router.get("/:id", getExpenses)
+router.get("/:id", getExpense)
 
 //CREATE
-//POSt on '/transactions'
+//POST on '/transactions'
 //create a new expense
 router.post("/", makeExpense)
 
@@ -24,7 +22,9 @@ router.post("/", makeExpense)
 //update expense by id
 router.put("/:id", changeExpense)
 
-
-
+// DELETE
+// DELETE on './transactions/:id'
+// Deletes the expense with that id
+router.delete("/:id", removeExpense)
 
 module.exports = router
