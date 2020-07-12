@@ -4,7 +4,7 @@ const {getAllExpenses, getExpenseById, addExpense, updateExpense, deleteExpense}
 const getExpenses = function(req,res) {
     getAllExpenses(req)
         .sort({
-                date: -1
+            date: -1
         })
         .exec((err, expenses) => {
              if (err) {
@@ -41,21 +41,21 @@ const makeExpense = function (req,res) {
         res.status(201)
         res.send(expense)
         })
-    }
+}
 
-    const changeExpense = function(req,res) {
-        // Check for error from middleware
-        // execute the query from updateExpense
-        updateExpense(req)
-        .exec((err, expense) => {
-            if(err || !expense) {
-                req.message = err ? err.message : 'Expense details not found';
-                req.status = err ? 500 : 400
-            }
-            res.status(200)
-            res.send(expense)
-        })
-    }
+const changeExpense = function(req,res) {
+    // Check for error from middleware
+    // execute the query from updateExpense
+    updateExpense(req)
+    .exec((err, expense) => {
+        if(err || !expense) {
+            req.message = err ? err.message : 'Expense details not found';
+            req.status = err ? 500 : 400
+        }
+        res.status(200)
+        res.send(expense)
+    })
+}
 
 const removeExpense = function(req,res){
     deleteExpense(req.params.id)
@@ -69,11 +69,11 @@ const removeExpense = function(req,res){
         })
 }
 
-    module.exports = {
-        getExpenses,
-        getExpense,
-        makeExpense,
-        changeExpense,
-        removeExpense
-    }
+module.exports = {
+    getExpenses,
+    getExpense,
+    makeExpense,
+    changeExpense,
+    removeExpense
+}
 
