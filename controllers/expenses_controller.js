@@ -29,7 +29,6 @@ const getExpense = function(req,res){
 }
 
 const makeExpense = function (req,res) {
-    
     addExpense(req)
         .save((err, expense) =>{
             if(err) {

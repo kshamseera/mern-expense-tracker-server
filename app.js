@@ -9,9 +9,9 @@ const port = process.env.PORT || 3000
 
 const app = express()
 // If we are not running in production, load our local .env
-if(process.env.NODE_ENV !== 'production') {
-    require('dotenv').config();
-    }
+// if(process.env.NODE_ENV !== 'production') {
+//     require('dotenv').config();
+//     }
 
 const dbConn = process.env.MONGODB_URI || 'mongodb://localhost/expense_tracker_app'
 
@@ -42,7 +42,7 @@ const corsOptions = {
 app.use(cors(corsOptions))
 app.use(bodyParser.json())
 
-app.use("/transactions", expenseRouter)
+app.use("/expenses", expenseRouter)
 app.get("/",(req,res)=> {
     console.log("request on/")
     res.send("Got your request")
