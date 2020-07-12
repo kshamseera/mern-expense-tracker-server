@@ -20,7 +20,7 @@ const addExpense = (req) => {
 const deleteExpense = function(id){
     return Expense.findByIdAndRemove(id)
 }
-
+// update an expense 
 const updateExpense = (req) => {
     return Expense.findByIdAndUpdate(req.params.id, req.body, {
         new: true
