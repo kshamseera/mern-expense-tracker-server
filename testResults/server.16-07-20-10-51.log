@@ -1,0 +1,20 @@
+16-07-20-10-51
+START-------------------------
+
+> mern-expense-tracker-server@1.0.0 test /Users/shamsi/coder-academy/mern-expense-tracker-server
+> mocha
+
+
+
+Connected to database!
+  getAllexpenses with one expense
+    ✓ should get a expense if one exists
+    ✓ item of first expense should be milk
+
+  getExpenseById
+    ✓ item of first expense should be milk
+
+Connected to database!
+
+  3 passing (69ms)
+

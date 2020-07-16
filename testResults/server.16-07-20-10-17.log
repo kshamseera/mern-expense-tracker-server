@@ -1,0 +1,57 @@
+16-07-20-10-17
+START-------------------------
+
+> mern-expense-tracker-server@1.0.0 test /Users/shamsi/coder-academy/mern-expense-tracker-server
+> mocha
+
+
+
+Connected to database!
+  getAllexpenses with one expense
+    1) "before each" hook for "should get a expense if one exists"
+
+Connected to database!
+
+  0 passing (51ms)
+  1 failing
+
+  1) "before each" hook for "should get a expense if one exists":
+     ValidationError: Expense validation failed: date: Cast to date failed for value "15/7/2020" at path "date"
+      at model.Document.invalidate (node_modules/mongoose/lib/document.js:2575:32)
+      at model.$set (node_modules/mongoose/lib/document.js:1247:12)
+      at model._handleIndex (node_modules/mongoose/lib/document.js:980:14)
+      at model.$set (node_modules/mongoose/lib/document.js:921:22)
+      at model.Document (node_modules/mongoose/lib/document.js:140:12)
+      at model.Model (node_modules/mongoose/lib/model.js:106:12)
+      at new model (node_modules/mongoose/lib/model.js:4701:15)
+      at /Users/shamsi/coder-academy/mern-expense-tracker-server/node_modules/mongoose/lib/model.js:3079:22
+      at /Users/shamsi/coder-academy/mern-expense-tracker-server/node_modules/mongoose/lib/model.js:3115:7
+      at Array.forEach (<anonymous>)
+      at /Users/shamsi/coder-academy/mern-expense-tracker-server/node_modules/mongoose/lib/model.js:3114:15
+      at /Users/shamsi/coder-academy/mern-expense-tracker-server/node_modules/mongoose/lib/helpers/promiseOrCallback.js:31:5
+      at new Promise (<anonymous>)
+      at promiseOrCallback (node_modules/mongoose/lib/helpers/promiseOrCallback.js:30:10)
+      at Function.create (node_modules/mongoose/lib/model.js:3049:10)
+      at setupData (test/expense_utilities.test.js:61:20)
+      at Context.<anonymous> (test/expense_utilities.test.js:22:26)
+      at processImmediate (internal/timers.js:458:21)
+
+
+
+16-07-20-10-17
+START-------------------------
+
+> mern-expense-tracker-server@1.0.0 test /Users/shamsi/coder-academy/mern-expense-tracker-server
+> mocha
+
+
+
+Connected to database!
+  getAllexpenses with one expense
+    ✓ should get a expense if one exists
+    ✓ item of first expense should be milk
+
+Connected to database!
+
+  2 passing (53ms)
+
