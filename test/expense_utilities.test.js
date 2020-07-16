@@ -74,6 +74,7 @@ describe('addExpense', (done) => {
             body: {
                 item: 'milk',
                 category: 'food',
+                date: new Date('7/12/2020'),
                 amount:'10',
                 notes: ''
             }
@@ -127,6 +128,7 @@ describe('updateExpense', (done) => {
             body: {
                 item: 'egg',
                 category: 'food',
+                date: new Date('7/12/2020'),
                 amount:'10',
                 notes: '' 
             }
@@ -142,10 +144,10 @@ describe('updateExpense', (done) => {
 
 // Setup and tear down functions
 function setupData() {
-    let date = Date.now();
     let testExpense = {};
     testExpense.item = 'milk';
     testExpense.category = 'food';
+    testExpense.date = new Date('7/13/2020')
     testExpense.amount = '10';
     testExpense.notes = '';
     return Expense.create(testExpense);
