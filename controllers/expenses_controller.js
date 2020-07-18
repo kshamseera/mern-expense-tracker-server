@@ -1,5 +1,19 @@
 
-const {getAllExpenses, getExpenseById, addExpense, updateExpense, deleteExpense} = require("../utils/expense_utilities");
+const {
+    getAllExpenses,
+    getExpenseById,
+    addExpense,
+    updateExpense, 
+    deleteExpense
+} = require("../utils/expense_utilities");
+
+const userAuthenticated = function (req, res, next) {
+    if (req.isAuthenticated()) {
+        next();
+    } else {
+        res.sendStatus(403);
+    }
+}
 
 const getExpenses = function(req,res) {
     getAllExpenses(req)
@@ -29,6 +43,8 @@ const getExpense = function(req,res){
 }
 
 const makeExpense = function (req,res) {
+    // add the username from req.user
+    req.body.username = req.user.username
     addExpense(req)
         .save((err, expense) =>{
             if(err) {
@@ -73,6 +89,7 @@ module.exports = {
     getExpense,
     makeExpense,
     changeExpense,
-    removeExpense
+    removeExpense,
+    userAuthenticated
 }
 

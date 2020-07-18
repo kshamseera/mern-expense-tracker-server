@@ -1,6 +1,10 @@
 const express = require("express")
 const router = express.Router()
-const {getExpenses, getExpense, makeExpense, changeExpense, removeExpense} = require("../controllers/expenses_controller")
+const {getExpenses, getExpense, makeExpense, changeExpense, removeExpense, userAuthenticated} = require("../controllers/expenses_controller")
+
+
+// require authenticated user
+router.use(userAuthenticated)
 
 // READ
 // GET on '/transactions'
