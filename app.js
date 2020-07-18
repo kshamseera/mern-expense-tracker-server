@@ -2,7 +2,12 @@ const express = require("express")
 const cors = require("cors")
 const bodyParser = require("body-parser")
 const mongoose = require("mongoose")
+const session = require('express-session')
+const MongoStore = require("connect-mongo")(session)
+const passport = require("passport")
 const expenseRouter = require("./routes/expenses_routes")
+const userRouter = require('./routes/users_routes')
+const authRouter = require('./routes/auth_routes')
 
 
 const port = process.env.PORT || 3000
@@ -41,12 +46,32 @@ const corsOptions = {
 
 app.use(cors(corsOptions))
 app.use(bodyParser.json())
+app.use(session({
+    // resave and saveUninitialized set to false for deprecation warnings
+    secret: "Express is awesome",
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        maxAge: 1800000
+    },
+    store: new MongoStore({
+        mongooseConnection: mongoose.connection
+    })
+}));
 
-app.use("/expenses", expenseRouter)
+require('./config/passport')
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.get("/",(req,res)=> {
     console.log("request on/")
+    console.log('req.session', req.session)
     res.send("Got your request")
 })
+
+app.use("/expenses", expenseRouter)
+app.use("/users", userRouter)
+app.use("/auth", authRouter)
 
 app.listen(port, () => {
     console.log(`App listening on port ${port}`)
