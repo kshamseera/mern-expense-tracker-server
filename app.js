@@ -14,9 +14,9 @@ const port = process.env.PORT || 3000
 
 const app = express()
 // If we are not running in production, load our local .env
-if(process.env.NODE_ENV !== 'production') {
-    require('dotenv').config();
-    }
+// if(process.env.NODE_ENV !== 'production') {
+//     require('dotenv').config();
+//     }
 
 const dbConn = process.env.MONGODB_URI || 'mongodb://localhost/expense_tracker_app'
 
@@ -35,7 +35,7 @@ mongoose.connect(dbConn, {
     }
 });
 // Install middleware
-const allowList = ['http://localhost:3000','https://obscure-basin-70004.herokuapp.com/']
+const allowList = ['http://localhost:3001','https://obscure-basin-70004.herokuapp.com/']
 const corsOptions = {
     credentials: true,
     origin: function(origin, callback) {
