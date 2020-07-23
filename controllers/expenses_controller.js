@@ -16,7 +16,7 @@ const userAuthenticated = function (req, res, next) {
 }
 
 const getExpenses = function(req,res) {
-    getAllExpenses(req)
+    getAllExpenses(req.user.username)
         .sort({
             date: -1
         })
