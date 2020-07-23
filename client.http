@@ -1,0 +1,160 @@
+//create a new expense
+###
+POST http://localhost:3000/expenses
+Content-Type: application/json
+
+{
+    "item": "Doctor fee",
+    "amount": "100",
+    "category":"Health",
+    "date": "12/17/2020",
+    "notes": ""
+}
+
+# https://obscure-basin-70004.herokuapp.com/
+
+//get all expenses
+###
+GET http://localhost:3000/expenses
+
+//get all expense by id
+###
+
+GET http://localhost:3000/expenses/5f091b158818f4c2633bee50
+
+//update expense
+###
+PUT http://localhost:3000/expenses/5f091b158818f4c2633bee50
+Content-Type: application/json
+
+{
+    "item": "Egg",
+    "amount": "10",
+    "category":"food",
+    "date": "12/8/2020",
+    "notes": "1 tray of egg"
+}
+
+//register new user
+###
+POST http://localhost:3000/auth/register
+Content-Type: application/json
+
+{
+    "username": "tester",
+    "email": "tester@test.com",
+    "password": "tester"
+}
+
+
+
+//login the registerd user
+###
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+    "username": "tester",
+    "password": "tester" 
+}
+
+//getting the username
+###
+GET http://localhost:3000/auth/user
+
+//logout user
+###
+GET http://localhost:3000/auth/logout
+
+###
+GET http://localhost:3000/expenses
+
+
+//update user
+###
+PUT  http://localhost:3000/users/5f125ae55b257a80c6542ce5
+Content-Type: application/json
+
+{
+    "username": "tester",
+    "email": "test@tester.com",
+    "password": "tester" 
+}
+
+###
+DELETE http://localhost:3000/users/5f125ae55b257a80c6542ce5
+
+# ****Production Testing****
+//production testing for register
+
+###
+POST https://obscure-basin-70004.herokuapp.com/auth/register
+Content-Type: application/json
+
+{
+    "username": "tegann",
+    "email": "tegan@example.com",
+    "password": "tegan" 
+}
+
+//login user
+###
+
+POST https://obscure-basin-70004.herokuapp.com/auth/login
+Content-Type: application/json
+
+{
+    "username": "tester",
+    "password": "tester" 
+}
+
+//logout
+###
+GET https://obscure-basin-70004.herokuapp.com/auth/logout
+
+//add new expense
+###
+POST https://obscure-basin-70004.herokuapp.com/expenses
+Content-Type: application/json
+
+{
+    "item": "Chair",
+    "amount": "100",
+    "category":"Furniture",
+    "date": "11/17/2020",
+    "notes": "Home"
+}
+
+//get all expenses
+###
+GET https://obscure-basin-70004.herokuapp.com/expenses
+
+### update expenses for loggedin user 
+PUT https://obscure-basin-70004.herokuapp.com/expenses/5f190be15de67b0004880d56
+Content-Type: application/json
+
+{
+    "item": "Doctor fee",
+    "amount": "120",
+    "category":"Health",
+    "date": "12/17/2020",
+    "notes": "GP"
+}
+//delete expense for the loggein user
+###
+DELETE https://obscure-basin-70004.herokuapp.com/expenses/5f190be15de67b0004880d56
+
+
+###
+GET https://obscure-basin-70004.herokuapp.com/auth/user
+###
+
+
+PUT https://obscure-basin-70004.herokuapp.com/users/5f18f4005de67b0004880d4c
+Content-Type: application/json
+
+{
+    "username": "tegan",
+    "email": "tegan@test.com",
+    "password": "tegan" 
+}
