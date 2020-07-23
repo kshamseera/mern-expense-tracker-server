@@ -2,6 +2,11 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema
 const Expense = new Schema({
+    
+    username: {
+        type: String,
+        required: [true, 'username is required']
+    },
     item: {
         type: String,
         required: [true, 'Item is required']

@@ -39,8 +39,14 @@ function loginUser(req,res) {
     });
 }
 
+const authenticatedUser = (req,res) => {
+   res.status(200)
+   res.send(req.user.username)
+}
+
 module.exports = { 
     register ,
     login: loginUser,
-    logout
+    logout,
+    authenticatedUser
 };
