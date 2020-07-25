@@ -14,9 +14,9 @@ const port = process.env.PORT || 3000
 
 const app = express()
 // If we are not running in production, load our local .env
-// if(process.env.NODE_ENV !== 'production') {
-//     require('dotenv').config();
-//     }
+if(process.env.NODE_ENV !== 'production') {
+    require('dotenv').config();
+    }
 
 const dbConn = process.env.MONGODB_URI || 'mongodb://localhost/expense_tracker_app'
 
