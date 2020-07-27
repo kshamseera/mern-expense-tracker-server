@@ -35,7 +35,7 @@ mongoose.connect(dbConn, {
     }
 });
 // Install middleware
-const allowList = ['http://localhost:3001','https://obscure-basin-70004.herokuapp.com/']
+const allowList = ['http://localhost:3001','https://nifty-wright-11dd4b.netlify.app/']
 const corsOptions = {
     credentials: true,
     origin: function(origin, callback) {
