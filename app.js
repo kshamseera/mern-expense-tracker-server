@@ -10,7 +10,7 @@ const userRouter = require('./routes/users_routes')
 const authRouter = require('./routes/auth_routes')
 
 
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3001
 
 const app = express()
 // If we are not running in production, load our local .env
@@ -35,7 +35,7 @@ mongoose.connect(dbConn, {
     }
 });
 // Install middleware
-const allowList = ['http://localhost:3001','https://nifty-wright-11dd4b.netlify.app/']
+const allowList = ['http://localhost:3000','https://nifty-wright-11dd4b.netlify.app/']
 const corsOptions = {
     credentials: true,
     origin: function(origin, callback) {
