@@ -37,30 +37,27 @@ afterEach((done) => {
 
 describe('getAllexpenses with one expense', (done) => {
     it('should get a expense if one exists', function (done) {
-        let req = {
-            query: {}
-        };
-        utilities.getAllExpenses(req).exec((err, expenses) => {
+        let username = 'tester'
+    
+        utilities.getAllExpenses(username).exec((err, expenses) => {
             expect(Object.keys(expenses).length).toBe(1);
             done();
         });
     });
-    it('item of first expense should be milk', async function () {
-        let req = {
-            query: {}
-        };
-        await utilities.getAllExpenses(req).exec((err, expenses) => {
-            expect(expenses[0].item).toBe('milk');
+    it('username of first expense should be tester', async function () {
+        let username = 'tester'
+        await utilities.getAllExpenses(username).exec((err, expenses) => {
+            expect(expenses[0].username).toBe('tester');
         });
 
     });
 });
 
 describe('getExpenseById', (done) => {
-    it('item of first expense should be milk', function (done) {
+    it('username of first expense should be tester', function (done) {
         // Set up req with postId
         utilities.getExpenseById(expenseId).exec((err, expense) => {
-            expect(expense.item).toBe('milk');
+            expect(expense.username).toBe('tester');
             done();
         });
     });
@@ -72,6 +69,7 @@ describe('addExpense', (done) => {
         // define a req object with expected structure
         const req = {
             body: {
+                username: 'tester',
                 item: 'milk',
                 category: 'food',
                 date: new Date('7/12/2020'),
@@ -127,6 +125,7 @@ describe('updateExpense', (done) => {
             },
             body: {
                 item: 'egg',
+                username: 'tester',
                 category: 'food',
                 date: new Date('7/12/2020'),
                 amount:'10',
@@ -145,6 +144,7 @@ describe('updateExpense', (done) => {
 // Setup and tear down functions
 function setupData() {
     let testExpense = {};
+    testExpense.username = 'tester',
     testExpense.item = 'milk';
     testExpense.category = 'food';
     testExpense.date = new Date('7/13/2020')

@@ -1,0 +1,64 @@
+31-07-20-10-56
+START-------------------------
+
+> mern-expense-tracker-server@1.0.0 test /Users/shamsi/coder-academy/mern-expense-tracker-server
+> mocha
+
+
+
+Connected to database!
+  getAllexpenses with one expense
+    ✓ should get a expense if one exists
+    ✓ username of first expense should be tester
+
+  getExpenseById
+    ✓ username of first expense should be tester
+
+  addExpense
+    ✓ should add a expense
+    ✓ should fail if a required field is missing
+
+  deleteExpense
+    ✓ should delete the specified expense
+
+  updateExpense
+    ✓ should update a expense
+
+
+  7 passing (80ms)
+
+END-------------------------
+
+
+31-07-20-10-56
+START-------------------------
+
+> mern-expense-tracker-server@1.0.0 test /Users/shamsi/coder-academy/mern-expense-tracker-server
+> mocha
+
+
+
+Connected to database!
+  getAllexpenses with one expense
+    ✓ should get a expense if one exists
+    ✓ username of first expense should be tester
+
+  getExpenseById
+    ✓ username of first expense should be tester
+
+  addExpense
+    ✓ should add a expense
+    ✓ should fail if a required field is missing
+
+  deleteExpense
+    ✓ should delete the specified expense
+
+  updateExpense
+    ✓ should update a expense
+
+
+  7 passing (86ms)
+
+END-------------------------
+
+

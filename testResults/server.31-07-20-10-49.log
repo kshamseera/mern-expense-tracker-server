@@ -1,0 +1,70 @@
+31-07-20-10-49
+START-------------------------
+
+> mern-expense-tracker-server@1.0.0 test /Users/shamsi/coder-academy/mern-expense-tracker-server
+> mocha
+
+
+
+Connected to database!
+  getAllexpenses with one expense
+***username** tester
+*****expenses [
+  {
+    date: 2020-07-12T14:00:00.000Z,
+    _id: 5f236a9057600a1aa8a2a276,
+    username: 'tester',
+    item: 'milk',
+    category: 'food',
+    amount: 10,
+    notes: '',
+    __v: 0
+  }
+]
+    ✓ should get a expense if one exists
+***username** { query: {} }
+    1) username of first expense should be tester
+    2) username of first expense should be tester
+
+  getExpenseById
+    ✓ username of first expense should be tester
+
+  addExpense
+    ✓ should add a expense
+    ✓ should fail if a required field is missing
+
+  deleteExpense
+    ✓ should delete the specified expense
+
+  updateExpense
+    ✓ should update a expense
+
+
+  6 passing (92ms)
+  2 failing
+
+  1) getAllexpenses with one expense
+       username of first expense should be tester:
+     Uncaught TypeError: Cannot read property '0' of undefined
+      at /Users/shamsi/coder-academy/mern-expense-tracker-server/test/expense_utilities.test.js:53:28
+      at /Users/shamsi/coder-academy/mern-expense-tracker-server/node_modules/mongoose/lib/model.js:4882:16
+      at /Users/shamsi/coder-academy/mern-expense-tracker-server/node_modules/mongoose/lib/helpers/promiseOrCallback.js:16:11
+      at /Users/shamsi/coder-academy/mern-expense-tracker-server/node_modules/mongoose/lib/model.js:4905:21
+      at /Users/shamsi/coder-academy/mern-expense-tracker-server/node_modules/mongoose/lib/query.js:4382:18
+      at model.Query.<anonymous> (node_modules/mongoose/lib/query.js:1895:5)
+      at model.Query._wrappedThunk [as _find] (node_modules/mongoose/lib/helpers/query/wrapThunk.js:16:8)
+      at /Users/shamsi/coder-academy/mern-expense-tracker-server/node_modules/kareem/index.js:369:33
+      at processTicksAndRejections (internal/process/task_queues.js:75:11)
+
+  2) getAllexpenses with one expense
+       username of first expense should be tester:
+     Error: done() called multiple times in test <getAllexpenses with one expense username of first expense should be tester> of file /Users/shamsi/coder-academy/mern-expense-tracker-server/test/expense_utilities.test.js
+      at processTicksAndRejections (internal/process/task_queues.js:93:5)
+      at runNextTicks (internal/process/task_queues.js:62:3)
+      at processImmediate (internal/timers.js:431:9)
+
+
+
+END-------------------------
+
+

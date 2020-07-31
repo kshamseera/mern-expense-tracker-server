@@ -4,7 +4,6 @@ const Expense = require('../models/expense');
 
 // get all expenses
 const getAllExpenses = function (user) {
-
     return Expense.find({"username": user})
 }
 // get expense by id
